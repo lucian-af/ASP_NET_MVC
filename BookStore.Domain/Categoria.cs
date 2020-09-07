@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
 
-namespace BookStore.Models
+namespace BookStore.Dominio
 {
-    public class Autor
+    public class Categoria
     {
-        public Autor()
+        public Categoria()
         {
             this.Livros = new List<Livro>();
         }
 
         public int Id { get; set; }
-        public int Nome { get; set; }
+        public string Nome { get; set; }
+
         public ICollection<Livro> Livros { get; set; }
     }
 }

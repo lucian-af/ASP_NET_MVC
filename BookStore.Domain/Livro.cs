@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BookStore.Models
+namespace BookStore.Dominio
 {
     public class Livro
     {

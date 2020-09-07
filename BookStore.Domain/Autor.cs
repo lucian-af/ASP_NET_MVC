@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace BookStore.Models
+namespace BookStore.Dominio
 {
-    public class Categoria
+    public class Autor
     {
-        public Categoria()
+        public Autor()
         {
             this.Livros = new List<Livro>();
         }
