@@ -7,6 +7,7 @@ namespace BookStore.Controllers
     /// <summary>
     /// Conhecendo a forma de rotas do asp.net mvc
     /// </summary>
+    [RoutePrefix("book")]    
     public class TesteController : Controller
     {
         public string Index()
@@ -48,6 +49,26 @@ namespace BookStore.Controllers
             Session["Categoria"] = "Móveis";
 
             return View(aut);
+        }
+
+        [Route("~/rotaignorada/{id:int}")]
+        public string MinhaActionIgnorada(int? id)
+        {
+            return "OK! Cheguei na rota ignorada";
+        }
+
+        [Route("minharota/{categoria:minlength(3)}")]
+        public string MinhaAction3(string categoria)
+        {
+            return $"OK! Cheguei na rota {categoria}";
+        }
+
+        // Esse seria o exemplo de rota personalizada constraint. Ver RouteConstraint/ValuesContraint
+        //[Route("estacao/{estacao:(primavera|verao|outono|inverno)}")]
+        [Route("estacao/{estacao:alpha:minlength(3)}")]
+        public string MinhaAction4(string estacao)
+        {
+            return $"Olá estamos no(a) {estacao}";
         }
     }
 }
