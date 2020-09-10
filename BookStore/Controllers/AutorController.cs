@@ -17,9 +17,9 @@ namespace BookStore.Controllers
     {
         private IAutorRepositorio _repositorio;
 
-        public AutorController()
+        public AutorController(IAutorRepositorio repositorio)
         {
-            _repositorio = new AutorRepositorio();
+            _repositorio = repositorio;
         }
 
         [Route("listar")]

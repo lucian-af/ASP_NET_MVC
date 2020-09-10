@@ -12,8 +12,12 @@ namespace BookStore.Repositorios
     public class AutorRepositorio : IAutorRepositorio
     {
         //  aqui abre a conexao
-        private BookStoreDataContext _context = new BookStoreDataContext();
-
+        private BookStoreDataContext _context;
+        // gerando uma dependencia
+        public AutorRepositorio(BookStoreDataContext context)
+        {
+            _context = context;
+        }
         public void Dispose()
         {
             // Aqui encerra a conexao

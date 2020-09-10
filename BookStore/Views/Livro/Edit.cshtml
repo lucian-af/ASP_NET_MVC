@@ -1,0 +1,35 @@
+﻿@model BookStore.ViewModels.EditorLivroViewModel
+@{
+    ViewBag.Title = "Alterando um livro qualquer...";
+}
+
+@helper minhaFunction(string Nome)
+{
+    <text>Usuário: @Nome</text>
+
+    @*<div>
+            @if (true)
+            {
+            Exemplo de interação entre html e razor
+            }
+        </div>*@
+}
+
+<hr />
+<p>@minhaFunction("Lucian AF")</p>
+<hr />
+
+<h2>Status: Alterar</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.Id);
+    @Html.Partial("Partials/EditorLivroPartial", Model);
+
+    <button type="submit" class="btn btn-default">Alterar</button>
+}
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

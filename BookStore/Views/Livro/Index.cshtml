@@ -1,0 +1,13 @@
+﻿@model IEnumerable<BookStore.ViewModels.EditorLivroViewModel>
+
+@{
+    ViewBag.Title = "Lista de Livros";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Novo Livro", "Create")
+</p>
+
+@Html.Partial("Partials/ListLivroPartial", Model)
