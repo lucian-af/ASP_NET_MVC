@@ -1,0 +1,13 @@
+﻿body {
+    background-color: #cdcdcd;
+}
+
+footer div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+    footer div * {
+        padding: 10px;
+    }
