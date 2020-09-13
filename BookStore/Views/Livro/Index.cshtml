@@ -2,12 +2,20 @@
 
 @{
     ViewBag.Title = "Lista de Livros";
+    // Aqui foi passado um layout alternativo, ou seja, essa view não seguirá o layout padrão
+    //Layout = "~/Views/Shared/_LayoutSecundario.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Lista de Livros</h2>
 
 <p>
     @Html.ActionLink("Novo Livro", "Create")
 </p>
 
 @Html.Partial("Partials/ListLivroPartial", Model)
+
+@*@section menu{
+        <div>
+            Olá, você está na página principal
+        </div>
+    }*@

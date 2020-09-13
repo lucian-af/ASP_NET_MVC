@@ -45,6 +45,13 @@ namespace BookStore.Controllers
         [HttpPost]
         public ActionResult Create(EditorLivroViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                var categorias = _repositorio.ObterTodasCategoria();
+                model.CategoriaOptions = new SelectList(categorias, "Id", "Nome");
+                return View(model);
+            }
+
             Livro livro = new Livro
             {
                 Nome = model.Nome,
@@ -53,8 +60,21 @@ namespace BookStore.Controllers
                 CategoriaId = model.CategoriaId
             };
 
-            if (_repositorio.Inserir(livro))
-                return RedirectToAction("Index");
+            try
+            {
+                // Testando ValidationMessage
+                //throw new Exception("Falha no banco!");
+
+                if (_repositorio.Inserir(livro))
+                    return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("Mensagem", ex.Message);
+                var categorias = _repositorio.ObterTodasCategoria();
+                model.CategoriaOptions = new SelectList(categorias, "Id", "Nome");
+                return View(model);
+            }
 
             return View(livro);
         }

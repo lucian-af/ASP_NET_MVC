@@ -1,6 +1,7 @@
 ﻿@model BookStore.ViewModels.EditorLivroViewModel
 @{
     ViewBag.Title = "Create";
+    //Layout = "~/Views/Shared/_LayoutSecundario.cshtml";
 }
 
 @helper minhaFunction(string Nome)
@@ -15,15 +16,17 @@
         </div>*@
 }
 
-<hr />
-<p>@minhaFunction("Lucian AF")</p>
-<hr />
-
 <h2>Novo Livro</h2>
 
 @using (Html.BeginForm())
 {
-    @Html.Partial("Partials/EditorLivroPartial", Model);
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+    <div class="alert alert-danger">
+        @Html.ValidationMessage("Mensagem")
+    </div>
+
+    @Html.Partial("Partials/EditorLivroPartial", Model);    
 
     <button type="submit" class="btn btn-default">Salvar</button>
 }
@@ -31,3 +34,12 @@
 @section Scripts{
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+@*@section menu{
+        <div>
+            Novo Registro
+            <hr />
+            <p>@minhaFunction("Lucian AF")</p>
+            <hr />
+        </div>
+    }*@

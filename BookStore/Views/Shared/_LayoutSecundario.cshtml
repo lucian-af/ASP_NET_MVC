@@ -1,0 +1,27 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.min.css" media="all" />
+    <title>ASP.NET MVC</title>
+</head>
+<body>
+    @if (IsSectionDefined("menu"))
+    {
+        <div class="col-md-4">
+            <h3>Status</h3>
+            @RenderSection("menu", false)
+        </div>
+    }
+    <div class="container well col-md-12">
+        @RenderBody()
+    </div>
+
+    @RenderSection("Scripts", false)
+</body>
+</html>
