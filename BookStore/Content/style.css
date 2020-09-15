@@ -1,5 +1,8 @@
 ﻿body {
-    background-color: #cdcdcd;
+}
+
+h2 {
+    text-align: center;
 }
 
 footer div {
@@ -10,4 +13,31 @@ footer div {
 
     footer div * {
         padding: 10px;
+    }
+
+.novo-registro {
+    text-decoration: none !important;
+}
+
+    .novo-registro img {
+        width: 4.9rem;
+        height: 4.9rem;
+        padding: 5px;
+    }
+
+a {
+    text-decoration: none !important;
+}
+
+    a img {
+        width: 1.9rem;
+        height: 1.9rem;
+    }
+
+table tbody tr td:first-child {
+    width: 100px;
+}
+
+    table tbody tr td:first-child a {
+        padding: 3px;
     }

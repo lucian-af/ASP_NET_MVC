@@ -1,7 +1,46 @@
-﻿
+﻿@model IEnumerable<BookStore.Dominio.Autor>
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Autores";
 }
 
-<h2>Index</h2>
+<h2>Lista de Autores</h2>
 
+<a href='@Url.Action("Create", "Autor")' title="Clique aqui para adicionar um novo registro" class="novo-registro">
+    <img src='@Url.Content("~/Img/new.svg")' />
+</a>
+
+
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+
+                <a href='@Url.Action("Edit", "Autor", new { id = item.Id})' title="Clique aqui para alterar">
+                    <img src='@Url.Content("~/Img/edit.svg")' />
+                </a>
+
+                <a href='@Url.Action("Delete", "Autor", new { id = item.Id })' title="Clique aqui para remover">
+                    <img src='@Url.Content("~/Img/delete.svg")' />
+                </a>
+
+                <a href='@Url.Action("View", "Autor", new { id = item.Id })' title="Clique aqui para visualizar">
+                    <img src='@Url.Content("~/Img/viewForm.svg")' />
+                </a>
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+        </tr>
+    }
+
+</table>

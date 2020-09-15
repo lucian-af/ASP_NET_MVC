@@ -31,7 +31,7 @@ namespace BookStore.Controllers
             return View(_repositorio.ObterTodos());
         }
 
-        [Route("criar")]        
+        [Route("criar")]
         public ActionResult Create()
         {
             // Essa renderiza a tela para preencher os campos
@@ -51,7 +51,7 @@ namespace BookStore.Controllers
 
         [Route("editar/{id:int}")]
         public ActionResult Edit(int id)
-        {            
+        {
             return View(_repositorio.ObterPorId(id));
         }
 
@@ -65,7 +65,7 @@ namespace BookStore.Controllers
             return View(autor);
         }
 
-        [Route("excluir/{id:int}")]        
+        [Route("excluir/{id:int}")]
         public ActionResult Delete(int id)
         {
             return View(_repositorio.ObterPorId(id));
@@ -74,9 +74,16 @@ namespace BookStore.Controllers
         [Route("excluir/{id:int}")]
         [HttpPost]
         public ActionResult DeleteConfirm(int id)
-        {            
+        {
             _repositorio.Excluir(id);
             return RedirectToAction("Index");
+        }
+
+        [Route("visualizar/{id:int}")]
+        [HttpGet]
+        public ActionResult View(int id)
+        {
+            return View(_repositorio.ObterPorId(id));
         }
     }
 }

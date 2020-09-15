@@ -1,0 +1,32 @@
+﻿@model BookStore.Dominio.Autor
+
+@{
+    ViewBag.Title = "Autores";
+}
+
+<div class="row row-no-gutters">
+
+    <div class="col-xs-12 col-md-2">
+
+        <a href='@Url.Action("Edit", "Autor", new { id = Model.Id})' title="Clique aqui para alterar">
+            <img src='@Url.Content("~/Img/edit.svg")' />
+        </a>
+
+        <a href='@Url.Action("Index", "Autor", new { id = Model.Id })' title="Clique aqui para voltar">
+            <img src='@Url.Content("~/Img/return.svg")' />
+        </a>
+
+    </div>
+
+    <div class="col-xs-6 col-md-4">
+
+        <h2>Autor</h2>
+
+    </div>
+
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Nome)
+    @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+</div>

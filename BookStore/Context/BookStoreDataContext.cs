@@ -7,8 +7,8 @@ namespace BookStore.Context
 {
     public class BookStoreDataContext : DbContext
     {
-        public BookStoreDataContext()
-            : base(@"Server=localhost,1433;Database=BookStore;User ID=sa;Password=sql@2017")
+        //"Server=localhost,1433;Database=BookStore;User ID=sa;Password=sql@2017"
+        public BookStoreDataContext() : base("BookConectionString")
         { }
 
         public DbSet<Autor> Autores { get; set; }
