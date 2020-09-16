@@ -6,6 +6,7 @@ using System.Web;
 using BookStore.Context;
 using BookStore.Dominio;
 using BookStore.Repositorios.Interfaces;
+using BookStore.ViewModels.Autor;
 
 namespace BookStore.Repositorios
 {
@@ -67,6 +68,16 @@ namespace BookStore.Repositorios
         public List<Autor> ObterTodos()
         {
             return _context.Autores.ToList();
+        }
+        public IEnumerable<EditorAutorViewModel> ObterTodosGrid()
+        {
+            return _context.Autores
+                .Select(autor => new EditorAutorViewModel
+                {
+                    Id = autor.Id,
+                    Nome = autor.Nome
+                })
+                .AsNoTracking().ToList();            
         }
     }
 }

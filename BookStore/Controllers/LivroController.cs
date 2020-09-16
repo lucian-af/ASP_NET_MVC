@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.EnterpriseServices.Internal;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using BookStore.Dominio;
 using BookStore.Repositorios.Interfaces;
-using BookStore.ViewModels;
+using BookStore.ViewModels.Livro;
 
 namespace BookStore.Controllers
 {

@@ -185,8 +185,9 @@
     <Compile Include="Repositorios\LivroRepositorio.cs" />
     <Compile Include="RouteConstraint\ValuesConstraint.cs" />
     <Compile Include="Validacao\ValidarData.cs" />
-    <Compile Include="ViewModels\EditorLivroViewModel.cs" />
-    <Compile Include="ViewModels\LivroAutorViewModel.cs" />
+    <Compile Include="ViewModels\Autor\EditorAutorViewModel.cs" />
+    <Compile Include="ViewModels\Livro\EditorLivroViewModel.cs" />
+    <Compile Include="ViewModels\Livro\LivroAutorViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -216,6 +217,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Sistema\script.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -242,6 +244,7 @@
     <Content Include="Views\Livro\Partials\ListLivroPartial.cshtml" />
     <Content Include="Views\Shared\_LayoutSecundario.cshtml" />
     <Content Include="Views\Autor\View.cshtml" />
+    <Content Include="Views\Autor\Partials\EditorAutorPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

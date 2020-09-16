@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using BookStore.Dominio;
+using BookStore.ViewModels.Autor;
 
 namespace BookStore.Repositorios.Interfaces
 {
@@ -8,6 +9,7 @@ namespace BookStore.Repositorios.Interfaces
     public interface IAutorRepositorio : IDisposable
     {
         List<Autor> ObterTodos();
+        IEnumerable<EditorAutorViewModel> ObterTodosGrid();
         Autor ObterPorId(int id);
         List<Autor> ObterPorNome(string nome);
         bool Inserir(Autor autor);

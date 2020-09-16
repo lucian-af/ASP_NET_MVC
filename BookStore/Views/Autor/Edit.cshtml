@@ -1,7 +1,20 @@
-﻿
+﻿@model BookStore.ViewModels.Autor.EditorAutorViewModel
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Alterar Autor";
 }
 
-<h2>Edit</h2>
+<h2>Alterar Autor</h2>
 
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+    @Html.HiddenFor(model => model.Id);
+    @Html.Partial("Partials/EditorAutorPartial", Model);
+
+    <button type="submit" class="btn btn-success">Alterar</button>
+}
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

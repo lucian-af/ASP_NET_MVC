@@ -1,6 +1,10 @@
 ﻿body {
 }
 
+input {
+    text-transform: uppercase !important;
+}
+
 h2 {
     text-align: center;
 }

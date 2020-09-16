@@ -1,4 +1,4 @@
-﻿@model BookStore.ViewModels.EditorLivroViewModel
+﻿@model BookStore.ViewModels.Livro.EditorLivroViewModel
 @{
     ViewBag.Title = "Alterando um livro qualquer...";
 }
@@ -23,6 +23,8 @@
 
 @using (Html.BeginForm())
 {
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
     @Html.HiddenFor(model => model.Id);
     @Html.Partial("Partials/EditorLivroPartial", Model);
 

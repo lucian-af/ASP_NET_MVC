@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using BookStore.Dominio;
-using BookStore.ViewModels;
+using BookStore.ViewModels.Livro;
 
 namespace BookStore.Repositorios.Interfaces
 {

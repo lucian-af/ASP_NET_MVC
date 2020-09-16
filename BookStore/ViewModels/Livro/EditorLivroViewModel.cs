@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using BookStore.Dominio;
 using BookStore.Validacao;
 
-namespace BookStore.ViewModels
+namespace BookStore.ViewModels.Livro
 {
     public class EditorLivroViewModel
     {
@@ -29,7 +26,7 @@ namespace BookStore.ViewModels
 
         [Display(Name = "Data do Lançamento")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
-        [DataType(DataType.Date)]        
+        [DataType(DataType.Date)]
         public DateTime DataLancamentoGrid { get; set; }
 
         [Required(ErrorMessage = "Selecione a categoria!")]

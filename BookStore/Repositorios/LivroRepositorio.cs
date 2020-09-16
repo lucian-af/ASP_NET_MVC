@@ -4,7 +4,7 @@ using System.Linq;
 using BookStore.Context;
 using BookStore.Dominio;
 using BookStore.Repositorios.Interfaces;
-using BookStore.ViewModels;
+using BookStore.ViewModels.Livro;
 
 namespace BookStore.Repositorios
 {
