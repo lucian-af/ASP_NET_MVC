@@ -184,6 +184,7 @@
     <Compile Include="Repositorios\Interfaces\ILivroRepositorio.cs" />
     <Compile Include="Repositorios\LivroRepositorio.cs" />
     <Compile Include="RouteConstraint\ValuesConstraint.cs" />
+    <Compile Include="Utils\Enum.cs" />
     <Compile Include="Validacao\ValidarData.cs" />
     <Compile Include="ViewModels\Autor\EditorAutorViewModel.cs" />
     <Compile Include="ViewModels\Livro\EditorLivroViewModel.cs" />
@@ -194,7 +195,6 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

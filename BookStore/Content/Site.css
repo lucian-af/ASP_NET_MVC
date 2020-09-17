@@ -16,9 +16,123 @@
     white-space: normal;
 }
 
+.statusForm-novo {
+    background-color: #86c7ff;
+}
+
+.statusForm-alterar {
+    background-color: #f0ad4e;
+}
+
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 100%;
+    width: 100%;
 }
+
+.form-group {
+    padding: 15px 10px 0 0;
+    width: 100%;
+    margin: -15px 0 10px;
+}
+
+.form-group-line {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.col-md-6 {
+    margin-top: 20px;
+}
+
+.action-title-crud {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 5px 0px;
+    border-bottom: 1px solid #cdcdcd;
+}
+
+    .action-title-crud div:first-child {
+        width: 20%;
+    }
+
+    .action-title-crud div:last-child {
+        width: 35%;
+        box-shadow: 0px 0px 5px 0px black;
+    }
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight: 600;
+    font-style: oblique;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+}
+
+.padrao {
+    box-sizing: content-box;
+    box-shadow: 0 0 9px 2px #00000096;
+    margin-top: 30px;
+}
+
+hr {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border: 0;
+    border-top: 1px solid #a1a1a1;
+    width: 98%;
+}
+
+input {
+    text-transform: uppercase !important;
+}
+
+footer {
+    position: fixed;
+    height: 35px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 20px;
+    align-items: center;
+    background-color: #222222;
+    color: white;
+}
+
+.novo-registro {
+    text-decoration: none !important;
+}
+
+    .novo-registro img {
+        width: 4.9rem;
+        height: 4.9rem;
+        padding: 5px;
+    }
+
+a {
+    text-decoration: none !important;
+    color: white;
+}
+
+    a img {
+        width: 1.9rem;
+        height: 1.9rem;
+    }
+
+table tbody tr td:first-child {
+    width: 100px;
+}
+
+    table tbody tr td:first-child a {
+        padding: 3px;
+    }

@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@using Enums = BookStore.Utils.Enum
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css") @*Usado para renderizar os arquivos .css minificados pelo Bundle no browser*@
-    @Styles.Render("~/Content/custom")
     @Scripts.Render("~/bundles/modernizr")@*Usado para renderizar os arquivos .js minificados pelo Bundle no browser*@
 </head>
 <body>
@@ -44,3 +44,12 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
+@if (ViewData.ContainsKey(nameof(Enums.eStatusForm)))
+{
+    <script type="text/javascript">
+
+    setStatusForm(@ViewData[nameof(Enums.eStatusForm)])
+
+    </script>
+}

@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using BookStore.Dominio;
 using BookStore.Repositorios.Interfaces;
 using BookStore.ViewModels.Livro;
+using static BookStore.Utils.Enum;
 
 namespace BookStore.Controllers
 {
@@ -34,6 +35,7 @@ namespace BookStore.Controllers
                 CategoriaId = 0,
                 CategoriaOptions = new SelectList(categorias, "Id", "Nome")
             };
+            ViewData.Add(nameof(eStatusForm), (int)eStatusForm.Novo);
             return View(model);
         }
 
@@ -88,6 +90,7 @@ namespace BookStore.Controllers
                 CategoriaId = livro.CategoriaId,
                 CategoriaOptions = new SelectList(categorias, "Id", "Nome")
             };
+            ViewData.Add(nameof(eStatusForm), (int)eStatusForm.Alterar);
             return View(model);
         }
 

@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using BookStore.Dominio;
 using BookStore.Repositorios.Interfaces;
 using BookStore.ViewModels.Autor;
+using static BookStore.Utils.Enum;
 
 namespace BookStore.Controllers
 {
@@ -31,6 +32,7 @@ namespace BookStore.Controllers
         public ActionResult Create()
         {
             var model = new EditorAutorViewModel { Nome = "" };
+            ViewData.Add(nameof(eStatusForm), (int)eStatusForm.Novo);
             return View(model);
         }
 

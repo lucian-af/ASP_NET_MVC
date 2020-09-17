@@ -8,9 +8,9 @@
 
 <h2>Lista de Livros</h2>
 
-<p>
-    @Html.ActionLink("Novo Livro", "Create")
-</p>
+<a href='@Url.Action("Create", "Livro")' title="Clique aqui para adicionar um novo registro" class="novo-registro">
+    <img src='@Url.Content("~/Img/new.svg")' />
+</a>
 
 @Html.Partial("Partials/ListLivroPartial", Model)
 
