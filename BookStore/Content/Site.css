@@ -9,6 +9,11 @@
     padding-right: 15px;
 }
 
+form {
+    position: absolute;
+    width: inherit;
+}
+
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -16,12 +21,32 @@
     white-space: normal;
 }
 
+.status {
+    width: 0px;
+    height: 0px;
+    line-height: 0px;
+    border-style: solid;
+    border-width: 22px;
+    border-color: transparent;
+    margin-right: -15px;
+    position: relative;
+    float: right;
+}
+
 .statusForm-novo {
-    background-color: #86c7ff;
+    border-color: #337ab7 #337ab7 #fff #fff;
 }
 
 .statusForm-alterar {
-    background-color: #f0ad4e;
+    border-color: #f0ad4e #f0ad4e #fff #fff;
+}
+
+.statusForm-excluir {
+    border-color: #d9534f #d9534f #fff #fff;
+}
+
+.statusForm-visualizar {
+    border-color: #9151f7 #9151f7 #fff #fff;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -56,24 +81,16 @@ textarea {
     border-bottom: 1px solid #cdcdcd;
 }
 
-    .action-title-crud div:first-child {
-        width: 20%;
-    }
-
-    .action-title-crud div:last-child {
-        width: 35%;
-        box-shadow: 0px 0px 5px 0px black;
-    }
-
 h1, h2, h3, h4, h5, h6 {
     margin-top: 0px;
     margin-bottom: 0px;
     font-weight: 600;
     font-style: oblique;
-    height: 35px;
+    height: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 7px 0 0;
 }
 
 body {
@@ -82,7 +99,7 @@ body {
 .padrao {
     box-sizing: content-box;
     box-shadow: 0 0 9px 2px #00000096;
-    margin-top: 30px;
+    margin-top: 30px;    
 }
 
 hr {

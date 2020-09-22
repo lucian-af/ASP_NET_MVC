@@ -51,11 +51,20 @@ namespace BookStore.Repositorios
             }
             return true;
         }
-        public void Excluir(int id)
+        public bool Excluir(int id)
         {
-            Autor autor = _context.Autores.Find(id);
-            _context.Autores.Remove(autor);
-            _context.SaveChanges();
+            try
+            {
+                Autor autor = _context.Autores.Find(id);
+                _context.Autores.Remove(autor);
+                _context.SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
         }
         public Autor ObterPorId(int id)
         {

@@ -60,9 +60,6 @@ namespace BookStore.Controllers
 
             try
             {
-                // Testando ValidationMessage
-                //throw new Exception("Falha no banco!");
-
                 if (_repositorio.Inserir(livro))
                     return RedirectToAction("Index");
             }
@@ -80,16 +77,7 @@ namespace BookStore.Controllers
         [Route("editar")]
         public ActionResult Edit(int id)
         {
-            var categorias = _repositorio.ObterTodasCategoria();
-            var livro = _repositorio.ObterPorId(id);
-            var model = new EditorLivroViewModel
-            {
-                Nome = livro.Nome,
-                ISBN = livro.ISBN,
-                DataLancamento = livro.DataLancamento,
-                CategoriaId = livro.CategoriaId,
-                CategoriaOptions = new SelectList(categorias, "Id", "Nome")
-            };
+            EditorLivroViewModel model = PreencherModelLivro(id);
             ViewData.Add(nameof(eStatusForm), (int)eStatusForm.Alterar);
             return View(model);
         }
@@ -108,6 +96,51 @@ namespace BookStore.Controllers
                 return RedirectToAction("Index");
 
             return View(livro);
+        }
+
+        [Route("excluir")]
+        public ActionResult Delete(int id)
+        {
+            EditorLivroViewModel model = PreencherModelLivro(id);
+            ViewData.Add(nameof(eStatusForm), (int)eStatusForm.Excluir);
+            return View(model);
+        }
+
+        [Route("excluir")]
+        [HttpPost]
+        public ActionResult DeleteConfirm(EditorLivroViewModel model)
+        {
+            Livro livro = _repositorio.ObterPorId(model.Id);
+
+            if (_repositorio.Excluir(livro.Id))
+                return RedirectToAction("Index");
+
+            return View(livro);
+        }
+
+        [Route("visualizar/{id:int}")]
+        [HttpGet]
+        public ActionResult View(int id)
+        {
+            EditorLivroViewModel model = PreencherModelLivro(id);
+            ViewData.Add(nameof(eStatusForm), (int)eStatusForm.Visualizar);
+            return View(model);
+        }
+
+        private EditorLivroViewModel PreencherModelLivro(int id)
+        {
+            var categorias = _repositorio.ObterTodasCategoria();
+            var livro = _repositorio.ObterPorId(id);
+            var model = new EditorLivroViewModel
+            {
+                Id = livro.Id,
+                Nome = livro.Nome,
+                ISBN = livro.ISBN,
+                DataLancamento = livro.DataLancamento,
+                CategoriaId = livro.CategoriaId,
+                CategoriaOptions = new SelectList(categorias, "Id", "Nome")
+            };
+            return model;
         }
     }
 }

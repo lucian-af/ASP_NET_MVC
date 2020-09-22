@@ -2,28 +2,43 @@
 
 @using Enums = BookStore.Utils.Enum
 
+<div class="action-title-crud">
+
+    <div>
+
+        <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Index", "Autor")'">Voltar</button>
+
+        @{
+            switch ((Enums.eStatusForm)ViewData[nameof(Enums.eStatusForm)])
+            {
+                case Enums.eStatusForm.Novo:
+                    <button type="submit" class="btn btn-primary">SALVAR</button>
+                    break;
+                case Enums.eStatusForm.Alterar:
+                    <button type="submit" class="btn btn-warning">ALTERAR</button>
+                    break;
+                case Enums.eStatusForm.Excluir:
+                    <button type="submit" class="btn btn-danger">EXCLUIR</button>
+                    break;
+                case Enums.eStatusForm.Visualizar:
+                    <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Edit", "Autor", new { Id = Model.Id})'">ALTERAR</button>
+                    break;
+            }
+        }
+
+    </div>
+
+</div>
+
 <fieldset class="col-md-6">
 
-    @if (ViewData.ContainsKey("readonly") && ((bool)ViewData["readonly"]))
-    {
-        <div class="form-group">
-            @Html.LabelFor(model => model.Nome)
-            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-            @*@Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })*@
-        </div>
-
-        <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Index", "Autor", new { id = Model.Id })'">Voltar</button>
-
-        return;
-    }
+    @Html.HiddenFor(model => model.Id)
 
     <div class="form-group">
         @Html.LabelFor(model => model.Nome)
         @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
-        @*@Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })*@
+        @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
     </div>
-
-    <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Index", "Autor", new { id = Model.Id })'">Voltar</button>
 
 </fieldset>
 

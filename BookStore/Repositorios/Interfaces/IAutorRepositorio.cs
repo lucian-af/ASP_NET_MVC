@@ -14,6 +14,6 @@ namespace BookStore.Repositorios.Interfaces
         List<Autor> ObterPorNome(string nome);
         bool Inserir(Autor autor);
         bool Atualizar(Autor autor);
-        void Excluir(int id);
+        bool Excluir(int id);
     }
 }

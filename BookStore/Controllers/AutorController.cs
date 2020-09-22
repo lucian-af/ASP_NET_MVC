@@ -65,8 +65,8 @@ namespace BookStore.Controllers
         [Route("editar")]
         public ActionResult Edit(int id)
         {
-            var autor = _repositorio.ObterPorId(id);
-            var model = new EditorAutorViewModel { Nome = autor.Nome };
+            EditorAutorViewModel model = PreencherAutorModel(id);
+            ViewData.Add(nameof(eStatusForm), (int)eStatusForm.Alterar);
             return View(model);
         }
 
@@ -96,31 +96,39 @@ namespace BookStore.Controllers
             return View(autor);
         }
 
-        [Route("excluir/{id:int}")]
+        [Route("excluir")]
         public ActionResult Delete(int id)
         {
-            ViewData.Add("readonly", true);
-            var autor = _repositorio.ObterPorId(id);
-            var model = new EditorAutorViewModel { Nome = autor.Nome };
+            ViewData.Add(nameof(eStatusForm), (int)eStatusForm.Excluir);
+            EditorAutorViewModel model = PreencherAutorModel(id);
             return View(model);
         }
 
-        [Route("excluir/{id:int}")]
+        [Route("excluir")]
         [HttpPost]
-        public ActionResult DeleteConfirm(int id)
+        public ActionResult DeleteConfirm(EditorAutorViewModel model)
         {
-            _repositorio.Excluir(id);
-            return RedirectToAction("Index");
+            Autor autor = _repositorio.ObterPorId(model.Id);
+
+            if (_repositorio.Excluir(autor.Id))
+                return RedirectToAction("Index");
+
+            return View(model);
         }
 
         [Route("visualizar/{id:int}")]
         [HttpGet]
         public ActionResult View(int id)
         {
-            ViewData.Add("readonly", true);
-            var autor = _repositorio.ObterPorId(id);
-            var model = new EditorAutorViewModel { Nome = autor.Nome };
+            ViewData.Add(nameof(eStatusForm), (int)eStatusForm.Visualizar);
+            EditorAutorViewModel model = PreencherAutorModel(id);
             return View(model);
+        }
+        private EditorAutorViewModel PreencherAutorModel(int id)
+        {
+            var autor = _repositorio.ObterPorId(id);
+            var model = new EditorAutorViewModel { Id = autor.Id, Nome = autor.Nome };
+            return model;
         }
     }
 }

@@ -1,0 +1,10 @@
+﻿@model BookStore.ViewModels.Livro.EditorLivroViewModel
+
+@{
+    ViewBag.Title = "Livros";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.Partial("Partials/EditorLivroPartial", Model)
+}

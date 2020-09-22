@@ -203,6 +203,7 @@
     <Content Include="Img\edit.svg" />
     <Content Include="Img\new.svg" />
     <Content Include="Img\return.svg" />
+    <Content Include="Img\status.svg" />
     <Content Include="Img\viewForm.svg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -245,6 +246,8 @@
     <Content Include="Views\Shared\_LayoutSecundario.cshtml" />
     <Content Include="Views\Autor\View.cshtml" />
     <Content Include="Views\Autor\Partials\EditorAutorPartial.cshtml" />
+    <Content Include="Views\Livro\Delete.cshtml" />
+    <Content Include="Views\Livro\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

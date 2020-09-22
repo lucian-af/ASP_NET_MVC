@@ -11,30 +11,27 @@
             switch ((Enums.eStatusForm)ViewData[nameof(Enums.eStatusForm)])
             {
                 case Enums.eStatusForm.Novo:
-                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <button type="submit" class="btn btn-primary">SALVAR</button>
                     break;
                 case Enums.eStatusForm.Alterar:
-                    @Html.HiddenFor(model => model.Id);
-                    <button type="submit" class="btn btn-warning">Alterar</button>
+                    <button type="submit" class="btn btn-warning">ALTERAR</button>
                     break;
                 case Enums.eStatusForm.Excluir:
-                    @Html.HiddenFor(model => model.Id);
-                    <button type="submit" class="btn btn-danger">Excluir</button>
+                    <button type="submit" class="btn btn-danger">EXCLUIR</button>
+                    break;
+                case Enums.eStatusForm.Visualizar:
+                    <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Edit", "Livro", new { Id = Model.Id})'">ALTERAR</button>
                     break;
             }
         }
 
     </div>
 
-    <div>
-
-        <h3 value="@(ViewData[nameof(Enums.eStatusForm)])">Status: @((Enums.eStatusForm)ViewData[nameof(Enums.eStatusForm)])</h3>
-
-    </div>
-
 </div>
 
 <fieldset class="col-md-6">
+
+    @Html.HiddenFor(model => model.Id)
 
     <div class="form-group">
         @Html.LabelFor(model => model.Nome)

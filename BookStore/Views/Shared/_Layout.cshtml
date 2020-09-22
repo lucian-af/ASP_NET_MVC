@@ -29,6 +29,10 @@
         </div>
     </div>
     <div class="container body-content padrao">
+        <div value="-1" class="status">
+
+        </div>
+
         @RenderBody()
 
         <footer class="navbar-fixed-bottom">
@@ -48,8 +52,8 @@
 @if (ViewData.ContainsKey(nameof(Enums.eStatusForm)))
 {
     <script type="text/javascript">
-
-    setStatusForm(@ViewData[nameof(Enums.eStatusForm)])
+        
+    setStatusForm(@ViewData[nameof(Enums.eStatusForm)]) /*Modifica o status da tela visualmente*/
 
     </script>
 }

@@ -4,8 +4,7 @@
     ViewBag.Title = "Autores";
 }
 
-<h2>Autor</h2>
-
-@Html.Partial("Partials/EditorAutorPartial", Model)
-
-<button type="submit" class="btn btn-warning" onclick="location.href='@Url.Action("Edit", "Autor", new { id = Model.Id })'">Alterar</button>
+@using (Html.BeginForm())
+{
+    @Html.Partial("Partials/EditorAutorPartial", Model)
+}
