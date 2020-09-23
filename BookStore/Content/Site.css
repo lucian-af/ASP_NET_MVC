@@ -1,17 +1,17 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    padding: 0 20px 10px 0;
+}
+
+.main {
+    margin-right: 20px;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-}
-
-form {
-    position: absolute;
-    width: inherit;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -22,15 +22,15 @@ form {
 }
 
 .status {
-    width: 0px;
+    width: 0;
     height: 0px;
     line-height: 0px;
     border-style: solid;
     border-width: 22px;
     border-color: transparent;
-    margin-right: -15px;
-    position: relative;
-    float: right;
+    position: fixed;
+    z-index: 1;
+    right: 20px;
 }
 
 .statusForm-novo {
@@ -77,7 +77,7 @@ textarea {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    padding: 5px 0px;
+    padding: 8px 0px;
     border-bottom: 1px solid #cdcdcd;
 }
 
@@ -93,13 +93,10 @@ h1, h2, h3, h4, h5, h6 {
     padding: 7px 0 0;
 }
 
-body {
-}
-
 .padrao {
     box-sizing: content-box;
     box-shadow: 0 0 9px 2px #00000096;
-    margin-top: 30px;    
+    margin-top: 30px;
 }
 
 hr {

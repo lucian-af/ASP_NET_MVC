@@ -4,30 +4,90 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>BOOK STORE - @ViewBag.Title</title>
     @Styles.Render("~/Content/css") @*Usado para renderizar os arquivos .css minificados pelo Bundle no browser*@
     @Scripts.Render("~/bundles/modernizr")@*Usado para renderizar os arquivos .js minificados pelo Bundle no browser*@
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Principal", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Principal", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Autores", "Index", "Autor")</li>
+                        <li>@Html.ActionLink("Livros", "Index", "Livro")</li>
+                        <li>@Html.ActionLink("Categoria", "Index", "Categoria")</li>
+                    </ul>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Autores", "Index", "Autor")</li>
-                    <li>@Html.ActionLink("Livros", "Index", "Livro")</li>
-                    <li>@Html.ActionLink("Categoria", "Index", "Categoria")</li>
+        </div>*@
+
+    <div class="main">
+
+        <aside>
+
+            <div class="sidebar left ">
+
+                <div class="user-panel">
+
+                    <div class="pull-left image">
+                        <img src="~/Img/Logo/letterL.png"
+                             class="rounded-circle"
+                             alt="Logo"
+                             title="Clique aqui para ir para a Home"
+                             style="width:160px; height:45px; cursor:pointer;"
+                             onclick="location.href='@Url.Action("Index", "Home")'" />
+                    </div>
+
+                    <div class="pull-left info">
+                        <p title="Clique aqui para ir para a Home">@Html.ActionLink("BOOK STORE", "Index", "Home", new { area = "" }, new { @class = "" })</p>
+                        @* PENSAR NA IDÉIA DE LOGIN MUDANDO DE OFFLINE PARA ONLINE <a href="#"><i class="fa fa-circle text-success"></i> Online</a>*@
+                    </div>
+                </div>
+
+                <ul class="list-sidebar bg-defoult">
+
+                    <li>
+
+                        <a href="#" data-toggle="collapse" data-target="#cadastro" class="collapsed">
+                            <i class="fa fa-file-text-o"></i>
+                            <span class="nav-label"> Cadastros </span>
+                            <span class="fa fa-chevron-left pull-right"></span>
+                        </a>
+
+                        <ul class="sub-menu collapse" id="cadastro">
+                            <li class="active">@Html.ActionLink("Autores", "Index", "Autor")</li>
+                            <li>@Html.ActionLink("Livros", "Index", "Livro")</li>
+                            <li>@Html.ActionLink("Categoria", "Index", "Categoria")</li>
+                        </ul>
+
+                    </li>
+
+                    <li>
+
+                        <a href="#" data-toggle="collapse" data-target="#emprestimo" class="collapsed">
+                            <i class="fa fa-book"></i>
+                            <span class="nav-label">Empréstimo</span>
+                        </a>
+
+                    </li>
+
                 </ul>
+
             </div>
-        </div>
+
+        </aside>
+
     </div>
+
     <div class="container body-content padrao">
         <div value="-1" class="status">
 
@@ -52,7 +112,7 @@
 @if (ViewData.ContainsKey(nameof(Enums.eStatusForm)))
 {
     <script type="text/javascript">
-        
+
     setStatusForm(@ViewData[nameof(Enums.eStatusForm)]) /*Modifica o status da tela visualmente*/
 
     </script>

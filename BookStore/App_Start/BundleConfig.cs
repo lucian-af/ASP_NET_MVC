@@ -3,7 +3,7 @@
 namespace BookStore
 {
     /// <summary>
-    /// A classe bundle é responsável por empacotar os arquivos css e javascript em um ou masi arquivos para fins de otimização
+    /// A classe bundle é responsável por empacotar os arquivos css e javascript em um ou mais arquivos para fins de otimização
     /// o browse suporte até 6 requisições concorrentes, usando bundle ganhamos em performance ao rodar nossa aplicação
     /// </summary>
     public class BundleConfig
@@ -27,7 +27,9 @@ namespace BookStore
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/font-awesome.min.css",
+                      "~/Content/menu.css"));
         }
     }
 }
