@@ -1,53 +1,119 @@
 ﻿@model IEnumerable<BookStore.ViewModels.Livro.EditorLivroViewModel>
 
-<table class="table">
-    <tr>
-        <th></th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ISBN)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DataLancamento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Categoria)
-        </th>
-    </tr>
+<div style="max-width: 100%; max-height: 464px; overflow-y: auto; overflow-x: auto;">
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
+    <div class="divTable darkTable">
 
-                <a href='@Url.Action("Edit", "Livro", new { id = item.Id})' title="Clique aqui para alterar">
-                    <img src='@Url.Content("~/Img/edit.svg")' />
-                </a>
+        <div class="divTableHeading">
 
-                <a href='@Url.Action("Delete", "Livro", new { id = item.Id })' title="Clique aqui para remover">
-                    <img src='@Url.Content("~/Img/delete.svg")' />
-                </a>
+            <div class="divTableRow">
 
-                <a href='@Url.Action("View", "Livro", new { id = item.Id })' title="Clique aqui para visualizar">
-                    <img src='@Url.Content("~/Img/viewForm.svg")' />
-                </a>
+                <div class="divTableHead"></div>
+                <div class="divTableHead">@Html.DisplayNameFor(model => model.Nome)</div>
+                <div class="divTableHead">@Html.DisplayNameFor(model => model.ISBN)</div>
+                <div class="divTableHead">@Html.DisplayNameFor(model => model.DataLancamento)</div>
+                <div class="divTableHead">@Html.DisplayNameFor(model => model.Categoria)</div>
 
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ISBN)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataLancamentoGrid)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Categoria.Nome)
-            </td>
-        </tr>
-    }
+            </div>
 
-</table>
+        </div>
+
+        <div class="divTableBody">
+
+            @foreach (var item in Model)
+            {
+                <div class="divTableRow">
+
+                    <div class="divTableCell">
+                        <a href='@Url.Action("Edit", "Livro", new { id = item.Id})' title="Clique aqui para alterar">
+                            <img src='@Url.Content("~/Img/edit.svg")' />
+                        </a>
+
+                        <a href='@Url.Action("Delete", "Livro", new { id = item.Id })' title="Clique aqui para remover">
+                            <img src='@Url.Content("~/Img/delete.svg")' />
+                        </a>
+
+                        <a href='@Url.Action("View", "Livro", new { id = item.Id })' title="Clique aqui para visualizar">
+                            <img src='@Url.Content("~/Img/viewForm.svg")' />
+                        </a>
+                    </div>
+                    <div class="divTableCell">@Html.DisplayFor(modelItem => item.Nome)</div>
+                    <div class="divTableCell">@Html.DisplayFor(modelItem => item.ISBN)</div>
+                    <div class="divTableCell">@Html.DisplayFor(modelItem => item.DataLancamentoGrid)</div>
+                    <div class="divTableCell">@Html.DisplayFor(modelItem => item.Categoria.Nome)</div>
+
+                </div>
+
+            }
+
+        </div>
+
+    </div>
+
+</div>
+
+@*<div class="" style="display: table; width: 100%;">
+
+        <div style="display: table-row-group; width: 100%;">
+
+            <div style="display: table-row;">
+
+                <div style="border-bottom: 1px solid #999999; display: table-cell; padding: 3px 10px; width: 25%;">Ações</div>
+
+                <div style="border-bottom: 1px solid #999999; display: table-cell; padding: 3px 10px; width: 100%; text-overflow: ellipsis; white-space: nowrap;">
+                    @Html.DisplayNameFor(model => model.Nome)
+                </div>
+                <div style="border-bottom: 1px solid #999999; display: table-cell; padding: 3px 10px; width: 100%; text-overflow: ellipsis; white-space: nowrap;">
+                    @Html.DisplayNameFor(model => model.ISBN)
+                </div>
+                <div style="border-bottom: 1px solid #999999; display: table-cell; padding: 3px 10px; width: 100%; text-overflow: ellipsis; white-space: nowrap;">
+                    @Html.DisplayNameFor(model => model.DataLancamento)
+                </div>
+                <div style="border-bottom: 1px solid #999999; display: table-cell; padding: 3px 10px; width: 100%; text-overflow: ellipsis; white-space: nowrap;">
+                    @Html.DisplayNameFor(model => model.Categoria)
+                </div>
+
+            </div>
+
+            @foreach (var item in Model)
+            {
+                <div style="display: table-row;">
+
+                    <div style="border-bottom: 1px solid #999999; display: table-cell; padding: 3px 10px; width: 25%;">
+
+                        <a href='@Url.Action("Edit", "Livro", new { id = item.Id})' title="Clique aqui para alterar">
+                            <img src='@Url.Content("~/Img/edit.svg")' />
+                        </a>
+
+                        <a href='@Url.Action("Delete", "Livro", new { id = item.Id })' title="Clique aqui para remover">
+                            <img src='@Url.Content("~/Img/delete.svg")' />
+                        </a>
+
+                        <a href='@Url.Action("View", "Livro", new { id = item.Id })' title="Clique aqui para visualizar">
+                            <img src='@Url.Content("~/Img/viewForm.svg")' />
+                        </a>
+
+                    </div>
+
+                    <div style="border-bottom: 1px solid #999999; display: table-cell; padding: 3px 10px; width: 100%; text-overflow: ellipsis; white-space: nowrap;">
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </div>
+
+                    <div style="border-bottom: 1px solid #999999; display: table-cell; padding: 3px 10px; width: 100%; text-overflow: ellipsis; white-space: nowrap;">
+                        @Html.DisplayFor(modelItem => item.ISBN)
+                    </div>
+
+                    <div style="border-bottom: 1px solid #999999; display: table-cell; padding: 3px 10px; width: 100%; text-overflow: ellipsis; white-space: nowrap;">
+                        @Html.DisplayFor(modelItem => item.DataLancamentoGrid)
+                    </div>
+
+                    <div style="border-bottom: 1px solid #999999; display: table-cell; padding: 3px 10px; width: 100%; text-overflow: ellipsis; white-space: nowrap;">
+                        @Html.DisplayFor(modelItem => item.Categoria.Nome)
+                    </div>
+
+                </div>
+            }
+
+        </div>
+
+    </div>*@

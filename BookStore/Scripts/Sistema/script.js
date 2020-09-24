@@ -1,16 +1,24 @@
 ﻿$(document).ready(() => {
-    var _StatusForm = -1;
 
-    // seta foco no primeiro elemento input que não esteja disabled, hidden ou readonly
-    $("input:not(:disabled):not(input[type='hidden']):not([readonly])").first().focus();
-
-    $(".padrao").css('height', '' + ($("footer").offset().top - 55) + 'px');
+    setarFocoPrimeiroComponente();
+    autoAjusteAltura();
 
     $('.button-left').click(function () {
         $('.sidebar').toggleClass('fliph');
     });
 
 });
+
+function autoAjusteAltura() {
+    $(".padrao").css('height', '' + ($("footer").offset().top - 55) + 'px');
+    $(".menu-lista").css('height', '' + ($("footer").offset().top - 96) + 'px');
+    $("[id$='home']").css('height', '' + ($("footer").offset().top - 55) + 'px');
+}
+
+function setarFocoPrimeiroComponente() {
+    // seta foco no primeiro elemento input que não esteja disabled, hidden ou readonly
+    $("input:not(:disabled):not(input[type='hidden']):not([readonly])").first().focus();
+}
 
 function setStatusForm(statusForm) {
     let divStatusForm = $(".container.body-content.padrao").find('div:first')

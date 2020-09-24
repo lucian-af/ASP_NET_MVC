@@ -9,6 +9,10 @@
     @Scripts.Render("~/bundles/modernizr")@*Usado para renderizar os arquivos .js minificados pelo Bundle no browser*@
 </head>
 <body>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/sistema")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 
     @*<div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
@@ -29,6 +33,8 @@
                 </div>
             </div>
         </div>*@
+
+    <img src="~/Img/Logo/logo_principal.svg" style="position: fixed; z-index: -1; opacity: 0.7; width: 100%; height: initial;" />
 
     <div class="main">
 
@@ -53,34 +59,40 @@
                     </div>
                 </div>
 
-                <ul class="list-sidebar bg-defoult">
+                <div class="menu-lista">
 
-                    <li>
+                    <ul class="list-sidebar bg-defoult">
 
-                        <a href="#" data-toggle="collapse" data-target="#cadastro" class="collapsed">
-                            <i class="fa fa-file-text-o"></i>
-                            <span class="nav-label"> Cadastros </span>
-                            <span class="fa fa-chevron-left pull-right"></span>
-                        </a>
+                        <li>
+                            <a href="#" data-toggle="collapse" data-target="#cadastro" class="collapsed">
+                                <i class="fa fa-file-text-o"></i>
+                                <span class="nav-label"> Cadastros </span>
+                                <span class="fa fa-chevron-left pull-right"></span>
+                            </a>
+                            <ul class="sub-menu collapse" id="cadastro">
+                                <li>@Html.ActionLink("Autores", "Index", "Autor")</li>
+                                <li>@Html.ActionLink("Livros", "Index", "Livro")</li>
+                                <li>@Html.ActionLink("Categoria", "Index", "Categoria")</li>
+                            </ul>
+                        </li>
 
-                        <ul class="sub-menu collapse" id="cadastro">
-                            <li class="active">@Html.ActionLink("Autores", "Index", "Autor")</li>
-                            <li>@Html.ActionLink("Livros", "Index", "Livro")</li>
-                            <li>@Html.ActionLink("Categoria", "Index", "Categoria")</li>
-                        </ul>
+                        <li>
+                            <a href="#" data-toggle="collapse" data-target="#emprestimo" class="collapsed">
+                                <i class="fa fa-book"></i>
+                                <span class="nav-label">Empréstimo</span>
+                            </a>
+                        </li>
 
-                    </li>
+                        <li>
+                            <a href="#" data-toggle="collapse" data-target="#configuracao" class="collapsed">
+                                <i class="fa fa-terminal" aria-hidden="true"></i>
+                                <span class="nav-label">Configuração</span>
+                            </a>
+                        </li>
 
-                    <li>
+                    </ul>
 
-                        <a href="#" data-toggle="collapse" data-target="#emprestimo" class="collapsed">
-                            <i class="fa fa-book"></i>
-                            <span class="nav-label">Empréstimo</span>
-                        </a>
-
-                    </li>
-
-                </ul>
+                </div>
 
             </div>
 
@@ -101,11 +113,6 @@
         </footer>
 
     </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/sistema")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
 </body>
 </html>
 

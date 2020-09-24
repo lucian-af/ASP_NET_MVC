@@ -206,6 +206,7 @@
     <Content Include="Img\delete.svg" />
     <Content Include="Img\edit.svg" />
     <Content Include="Img\Logo\letterL.png" />
+    <Content Include="Img\Logo\logo_principal.svg" />
     <Content Include="Img\new.svg" />
     <Content Include="Img\return.svg" />
     <Content Include="Img\status.svg" />
